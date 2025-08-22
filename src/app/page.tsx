@@ -6,10 +6,12 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/product-card';
 import { products } from '@/lib/products';
-import { ArrowRight, Info, Smartphone, Users } from 'lucide-react';
+import { ArrowRight, Info, Smartphone, Users, Tag, Zap, TrendingUp } from 'lucide-react';
 
 export default function LandingPage() {
   const featuredProducts = products.slice(0, 3);
+  const bestOffers = products.slice(3, 6);
+  const clearanceProducts = products.slice(1, 4).reverse();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -108,6 +110,53 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        {/* Best Offers Section */}
+        <section id="best-offers" className="py-20 lg:py-32">
+          <div className="container mx-auto">
+            <div className="text-center mb-12">
+               <div className="inline-flex items-center gap-2 text-primary">
+                    <Tag className="h-6 w-6" />
+                    <h2 className="text-sm font-bold uppercase tracking-widest">Best Offers</h2>
+                </div>
+              <h3 className="text-3xl md:text-4xl font-bold tracking-tight mt-2">
+                Exclusive Deals Just For You
+              </h3>
+              <p className="mt-3 max-w-2xl mx-auto text-muted-foreground text-lg">
+                Don't miss out on these limited-time offers on top-rated smartphones.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {bestOffers.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Clearance Sale Section */}
+        <section id="clearance-sale" className="py-20 lg:py-32 bg-secondary/20">
+          <div className="container mx-auto">
+            <div className="text-center mb-12">
+               <div className="inline-flex items-center gap-2 text-primary">
+                    <Zap className="h-6 w-6" />
+                    <h2 className="text-sm font-bold uppercase tracking-widest">Clearance Sale</h2>
+                </div>
+              <h3 className="text-3xl md:text-4xl font-bold tracking-tight mt-2">
+                Last Chance to Grab a Deal
+              </h3>
+              <p className="mt-3 max-w-2xl mx-auto text-muted-foreground text-lg">
+                Amazing discounts on quality devices. Get them before they're gone!
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {clearanceProducts.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
     </div>
   );
