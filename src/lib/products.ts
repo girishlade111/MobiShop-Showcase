@@ -71,7 +71,7 @@ export const products: Product[] = [
       'Biometrics': 'Fingerprint Unlock, Face Unlock'
     },
     images: [
-      'https://placehold.co/600x600.png',
+      'https://images.unsplash.com/photo-1697355360151-2866de32ad4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxQaXhlbCUyMDglMjBwcm98ZW58MHx8fHwxNzU1ODg1MDk0fDA&ixlib=rb-4.1.0&q=80&w=1080',
       'https://placehold.co/600x600.png',
       'https://placehold.co/600x600.png',
     ],
