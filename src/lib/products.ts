@@ -115,7 +115,7 @@ export const products: Product[] = [
       'Biometrics': 'Face ID'
     },
     images: [
-      'https://placehold.co/600x600.png',
+      'https://images.unsplash.com/photo-1695048132832-b41495f12eb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpcGhvbmUlMjAxNXxlbnwwfHx8fDE3NTU4ODU3NzZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
       'https://placehold.co/600x600.png',
       'https://placehold.co/600x600.png',
     ],
@@ -137,7 +137,7 @@ export const products: Product[] = [
       'Biometrics': 'Side Fingerprint Scanner'
     },
     images: [
-      'https://images.unsplash.com/photo-1692299388337-1831853a4794?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzYW1zdW5nJTIwZ2FsYXh5JTIweiUyMGZvbGQlMjA1fGVufDB8fHx8MTc1NTg4NTY5Nnww&ixlib=rb-4.1.0&q=80&w=1080',
+      'https://images.unsplash.com/photo-1693943710014-4f177c246ddb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnYWxheHklMjB6JTIwZm9sZCUyMDV8ZW58MHx8fHwxNzU1ODg1NzM1fDA&ixlib=rb-4.1.0&q=80&w=1080',
       'https://images.unsplash.com/photo-1692299388321-3678517b6534?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzYW1zdW5nJTIwZ2FsYXh5JTIweiUyMGZvbGQlMjA1fGVufDB8fHx8MTc1NTg4NTY5Nnww&ixlib=rb-4.1.0&q=80&w=1080',
       'https://images.unsplash.com/photo-1692299388643-915478492061?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzYW1zdW5nJTIwZ2FsYXh5JTIweiUyMGZvbGQlMjA1fGVufDB8fHx8MTc1NTg4NTY5Nnww&ixlib=rb-4.1.0&q=80&w=1080',
     ],
