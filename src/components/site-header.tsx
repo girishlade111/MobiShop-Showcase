@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Smartphone, Heart, ShoppingCart, Package } from 'lucide-react';
+import { Smartphone, Heart, ShoppingCart, Package, User } from 'lucide-react';
 import { useWishlist } from '@/hooks/use-wishlist';
 import { useCart } from '@/hooks/use-cart';
 import { Button } from '@/components/ui/button';
@@ -56,6 +56,12 @@ export function SiteHeader() {
                 <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 justify-center p-0">{cartCount}</Badge>
               )}
               <span className="sr-only">Cart</span>
+            </Link>
+          </Button>
+           <Button variant="ghost" size="icon" asChild>
+            <Link href="/auth">
+              <User className="h-5 w-5" />
+              <span className="sr-only">Account</span>
             </Link>
           </Button>
         </div>
