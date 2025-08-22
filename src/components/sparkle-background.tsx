@@ -1,11 +1,18 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
 
 const SparkleBackground: React.FC = () => {
   const [sparkles, setSparkles] = useState<any[]>([]);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
     const generateSparkles = () => {
       const newSparkles = Array.from({ length: 30 }).map(() => ({
         id: Math.random(),
@@ -22,7 +29,11 @@ const SparkleBackground: React.FC = () => {
     const interval = setInterval(generateSparkles, 10000); // Regenerate sparkles every 10 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isClient]);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">

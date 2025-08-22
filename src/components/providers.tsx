@@ -15,8 +15,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
     return (
         <WishlistProvider>
           <CartProvider>
-            <SparkleBackground />
             <div className="relative flex min-h-screen flex-col">
+              <SparkleBackground />
               <SiteHeader />
               <main className="flex-1">{children}</main>
               <footer className="bg-secondary/20 border-t border-border/40">
