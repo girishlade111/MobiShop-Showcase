@@ -1,112 +1,114 @@
+
 "use client";
 
-import { useState, useMemo } from 'react';
-import { products, Product } from '@/lib/products';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/product-card';
-import { ProductFilters } from '@/components/product-filters';
-import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Search } from 'lucide-react';
+import { products } from '@/lib/products';
+import { ArrowRight, Info, Smartphone, Users } from 'lucide-react';
 
-export default function Home() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1800]);
-  const [sortOption, setSortOption] = useState('price-asc');
-
-  const availableBrands = useMemo(() => {
-    const brands = new Set(products.map(p => p.brand));
-    return Array.from(brands);
-  }, []);
-
-  const filteredAndSortedProducts = useMemo(() => {
-    let filtered = products.filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) || product.brand.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
-      const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
-      return matchesSearch && matchesBrand && matchesPrice;
-    });
-
-    switch (sortOption) {
-      case 'price-asc':
-        filtered.sort((a, b) => a.price - b.price);
-        break;
-      case 'price-desc':
-        filtered.sort((a, b) => b.price - a.price);
-        break;
-      case 'name-asc':
-        filtered.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case 'name-desc':
-        filtered.sort((a, b) => b.name.localeCompare(a.name));
-        break;
-    }
-
-    return filtered;
-  }, [searchTerm, selectedBrands, priceRange, sortOption]);
-
-  const maxPrice = useMemo(() => Math.max(...products.map(p => p.price)), []);
+export default function LandingPage() {
+  const featuredProducts = products.slice(0, 3);
 
   return (
-    <div className="container mx-auto py-8">
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold tracking-tight text-primary animate-fade-in-down">MobiShop Showcase</h1>
-        <p className="mt-4 text-lg text-muted-foreground animate-fade-in-up">Discover the Latest in Mobile Technology</p>
-      </div>
-
-      <div className="grid lg:grid-cols-[280px_1fr] gap-8">
-        <aside className="hidden lg:block">
-          <div className="sticky top-24 space-y-6">
-            <ProductFilters
-              brands={availableBrands}
-              selectedBrands={selectedBrands}
-              onBrandChange={setSelectedBrands}
-              priceRange={priceRange}
-              onPriceChange={setPriceRange}
-              maxPrice={maxPrice}
-            />
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative h-[80vh] min-h-[500px] flex items-center text-center text-white bg-gradient-to-br from-gray-900 via-background to-gray-800 overflow-hidden">
+          <div className="container z-10">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-primary animate-fade-in-down">
+              Experience Innovation
+            </h1>
+            <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground animate-fade-in-up">
+              Discover the next generation of mobile technology. Powerful, elegant, and designed for you.
+            </p>
+            <div className="mt-8 flex justify-center gap-4 animate-fade-in-up">
+              <Button asChild size="lg" className="text-lg">
+                <Link href="/products">
+                  Explore Products <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="text-lg">
+                <Link href="/contact">
+                  Contact Us
+                </Link>
+              </Button>
+            </div>
           </div>
-        </aside>
-
-        <main>
-          <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-white/10">
-            <div className="relative w-full md:max-w-sm">
-               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <Input
-                placeholder="Search products or brands..."
-                value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
-                className="bg-transparent pl-10"
+           <div className="absolute inset-0 z-0">
+             <Image
+                src="https://placehold.co/1920x1080.png"
+                alt="Hero background"
+                layout="fill"
+                objectFit="cover"
+                className="opacity-20"
+                data-ai-hint="abstract tech background"
               />
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Sort by:</span>
-              <Select value={sortOption} onValueChange={setSortOption}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Sort by" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="price-asc">Price: Low to High</SelectItem>
-                  <SelectItem value="price-desc">Price: High to Low</SelectItem>
-                  <SelectItem value="name-asc">Name: A-Z</SelectItem>
-                  <SelectItem value="name-desc">Name: Z-A</SelectItem>
-                </SelectContent>
-              </Select>
+          </div>
+        </section>
+
+        {/* About Us Section */}
+        <section id="about" className="py-20 lg:py-32">
+          <div className="container mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-4">
+                 <div className="inline-flex items-center gap-2 text-primary">
+                    <Users className="h-6 w-6" />
+                    <h2 className="text-sm font-bold uppercase tracking-widest">About MobiShop</h2>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold tracking-tight">
+                  Your Trusted Partner in Mobile Technology
+                </h3>
+                <p className="text-muted-foreground text-lg">
+                  MobiShop is more than just a retailer; we are enthusiasts dedicated to bringing you the latest and greatest in mobile innovation. Our mission is to provide a curated selection of top-tier devices, ensuring quality, performance, and a seamless customer experience. We believe in the power of technology to connect and inspire.
+                </p>
+                 <Button asChild variant="link" className="px-0 text-lg">
+                    <Link href="/contact">Learn More <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                </Button>
+              </div>
+              <div>
+                <Image
+                  src="https://placehold.co/600x400.png"
+                  alt="MobiShop Team"
+                  width={600}
+                  height={400}
+                  className="rounded-xl shadow-2xl"
+                  data-ai-hint="modern office team"
+                />
+              </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-            {filteredAndSortedProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-          {filteredAndSortedProducts.length === 0 && (
-             <div className="col-span-full flex flex-col items-center justify-center py-24 text-center bg-card/50 backdrop-blur-sm border border-white/10 rounded-lg">
-                <h2 className="text-2xl font-semibold text-primary">No Products Found</h2>
-                <p className="text-muted-foreground mt-2">Try adjusting your search or filters.</p>
+        </section>
+
+        {/* Featured Products Section */}
+        <section id="featured-products" className="py-20 lg:py-32 bg-secondary/20">
+          <div className="container mx-auto">
+            <div className="text-center mb-12">
+               <div className="inline-flex items-center gap-2 text-primary">
+                    <Smartphone className="h-6 w-6" />
+                    <h2 className="text-sm font-bold uppercase tracking-widest">Featured Products</h2>
+                </div>
+              <h3 className="text-3xl md:text-4xl font-bold tracking-tight mt-2">
+                Check Out Our Best Sellers
+              </h3>
+              <p className="mt-3 max-w-2xl mx-auto text-muted-foreground text-lg">
+                Handpicked for their exceptional performance, design, and user satisfaction.
+              </p>
             </div>
-          )}
-        </main>
-      </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredProducts.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+             <div className="text-center mt-12">
+               <Button asChild size="lg">
+                    <Link href="/products">View All Products <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                </Button>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

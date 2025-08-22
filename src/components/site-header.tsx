@@ -1,7 +1,8 @@
+
 "use client";
 
 import Link from 'next/link';
-import { Smartphone, Heart, ShoppingCart } from 'lucide-react';
+import { Smartphone, Heart, ShoppingCart, Package } from 'lucide-react';
 import { useWishlist } from '@/hooks/use-wishlist';
 import { useCart } from '@/hooks/use-cart';
 import { Button } from '@/components/ui/button';
@@ -17,7 +18,6 @@ export function SiteHeader() {
     setIsClient(true);
   }, []);
 
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
@@ -25,7 +25,21 @@ export function SiteHeader() {
           <Smartphone className="h-6 w-6 text-primary" />
           <span className="font-bold text-lg">MobiShop</span>
         </Link>
-        <nav className="flex items-center gap-2 sm:gap-4">
+        <nav className="hidden md:flex items-center gap-4">
+          <Button variant="link" asChild>
+            <Link href="/products">Products</Link>
+          </Button>
+          <Button variant="link" asChild>
+            <Link href="/contact">Contact</Link>
+          </Button>
+        </nav>
+        <div className="flex items-center gap-2 sm:gap-4">
+           <Button variant="ghost" className="md:hidden" size="icon" asChild>
+            <Link href="/products">
+              <Package className="h-5 w-5" />
+              <span className="sr-only">Products</span>
+            </Link>
+          </Button>
           <Button variant="ghost" size="icon" asChild>
             <Link href="/wishlist">
               <Heart className="h-5 w-5" />
@@ -44,10 +58,7 @@ export function SiteHeader() {
               <span className="sr-only">Cart</span>
             </Link>
           </Button>
-           <Button asChild>
-            <Link href="/contact">Contact Us</Link>
-          </Button>
-        </nav>
+        </div>
       </div>
     </header>
   );
