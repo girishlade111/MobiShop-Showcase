@@ -26,7 +26,7 @@ export const products: Product[] = [
       'Biometrics': 'Face ID'
     },
     images: [
-      'https://placehold.co/600x600.png',
+      'https://images.unsplash.com/photo-1716882173326-04d822f142a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNHx8aXBob25lJTIwMTUlMjBwcm98ZW58MHx8fHwxNzU1ODg0OTY1fDA&ixlib=rb-4.1.0&q=80&w=1080',
       'https://placehold.co/600x600.png',
       'https://placehold.co/600x600.png',
     ],
