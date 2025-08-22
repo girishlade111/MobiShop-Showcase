@@ -137,7 +137,7 @@ export const products: Product[] = [
       'Biometrics': 'Side Fingerprint Scanner'
     },
     images: [
-      'https://images.unsplash.com/photo-1693943710014-4f177c246ddb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnYWxheHklMjB6JTIwZm9sZCUyMDV8ZW58MHx8fHwxNzU1ODg1NzM1fDA&ixlib=rb-4.1.0&q=80&w=1080',
+      'https://images.unsplash.com/photo-1694829822213-294a26f36efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2FsYXh5JTIweiUyMGZvbGQlMjA1fGVufDB8fHx8MTc1NTg4NTczNXww&ixlib=rb-4.1.0&q=80&w=1080',
       'https://images.unsplash.com/photo-1692299388321-3678517b6534?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzYW1zdW5nJTIwZ2FsYXh5JTIweiUyMGZvbGQlMjA1fGVufDB8fHx8MTc1NTg4NTY5Nnww&ixlib=rb-4.1.0&q=80&w=1080',
       'https://images.unsplash.com/photo-1692299388643-915478492061?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzYW1zdW5nJTIwZ2FsYXh5JTIweiUyMGZvbGQlMjA1fGVufDB8fHx8MTc1NTg4NTY5Nnww&ixlib=rb-4.1.0&q=80&w=1080',
     ],
