@@ -69,7 +69,7 @@ export default function LandingPage() {
               </div>
               <div>
                 <Image
-                  src="https://placehold.co/600x400.png"
+                  src="https://images.unsplash.com/photo-1753199917594-e79ee1ba6f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8UGFydG5lciUyMGluJTIwTW9iaWxlJTIwVGVjaG5vbG9neXxlbnwwfHx8fDE3NTU4ODQ3NzV8MA&ixlib=rb-4.1.0&q=80&w=1080"
                   alt="MobiShop Team"
                   width={600}
                   height={400}
