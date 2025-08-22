@@ -45,7 +45,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             <CarouselContent>
               {product.images.map((img, index) => (
                 <CarouselItem key={index}>
-                  <Card className="overflow-hidden">
+                  <Card className="overflow-hidden border-white/10 rounded-xl">
                     <Image
                       src={img}
                       alt={`${product.name} image ${index + 1}`}
@@ -79,16 +79,16 @@ export default function ProductPage({ params }: ProductPageProps) {
           
           <p className="text-base text-muted-foreground">{product.description}</p>
 
-          <p className="text-4xl font-bold text-gray-900 dark:text-gray-50">${product.price.toFixed(2)}</p>
+          <p className="text-4xl font-bold text-foreground">${product.price.toFixed(2)}</p>
           
           <div className="flex items-center gap-4">
-            <AddToCartButton productId={product.id} />
+            <AddToCartButton productId={product.id} size="lg" />
             <WishlistButton productId={product.id} />
           </div>
 
           <Separator />
           
-          <Card>
+          <Card className="bg-card/50 backdrop-blur-sm border-white/10">
             <CardHeader>
               <CardTitle>Specifications</CardTitle>
             </CardHeader>
