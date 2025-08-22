@@ -93,7 +93,7 @@ export const products: Product[] = [
       'Biometrics': 'In-display Fingerprint Sensor'
     },
     images: [
-      'https://placehold.co/600x600.png',
+      'https://images.unsplash.com/photo-1629110276446-7f26e2654757?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvbmUlMjBwbHVzJTIwcGhvbmV8ZW58MHx8fHwxNzU1ODg1NTY5fDA&ixlib=rb-4.1.0&q=80&w=1080',
       'https://placehold.co/600x600.png',
       'https://placehold.co/600x600.png',
     ],
